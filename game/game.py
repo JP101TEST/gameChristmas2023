@@ -37,14 +37,20 @@ print(tile," [1]=",tile[0]," [2]=",tile[1])
 
 tilemap = []
 
-for i in range(0,36):
+
+for i in range(18):#36 to 18
     row = []
-    for j in range(0,36):
+    for j in range(36):
         t = Tilemap(((32*2)+(32*i),(32*2)+(32*j)),(32,32),random.randint(0,2))
         row.append(t)
     tilemap.append(row)
 
+# for i in range(18):#36 to 18
+#     print(len(tilemap),"|",len(tilemap[0]),"|",tilemap[i][35].get_pos_x(),"|",tilemap[i][35].get_pos_y())
 
+for i in range(0,18):
+        for j in range(0,36):
+            print(tilemap[i][j].get_pos_x(),"|",tilemap[i][j].get_pos_y())
 while True:
 
     for event in pygame.event.get():
@@ -54,11 +60,11 @@ while True:
 
     player_1_react = pygame.Rect(player_1.get_pos_x(), player_1.get_pos_y(), player_1.get_height(), player_1.get_width())
     player_1_react_top = pygame.Rect(player_1.get_pos_x()+2, player_1.get_pos_y()-1, player_1.get_width()-4, 2)
-    player_1_react_left = pygame.Rect(player_1.get_pos_x()-2, player_1.get_pos_y()+2, 2, player_1.get_height()-4)
-    player_1_react_right = pygame.Rect(player_1.get_pos_x()+32, player_1.get_pos_y()+2, 2, player_1.get_height()-4)
+    player_1_react_left = pygame.Rect(player_1.get_pos_x()-2, player_1.get_pos_y()+4, 2, player_1.get_height()-8)
+    player_1_react_right = pygame.Rect(player_1.get_pos_x()+32, player_1.get_pos_y()+4, 2, player_1.get_height()-8)
     player_1_react_bottom = pygame.Rect(player_1.get_pos_x()+2, player_1.get_pos_y()+32, player_1.get_width()-4, 2)
     
-    for i in range(0,36):
+    for i in range(0,18):
         for j in range(0,36):
             if player_1_react.colliderect(pygame.Rect(tilemap[i][j].get_PS())):
                 textCollision = "Collision:True"
@@ -107,9 +113,9 @@ while True:
     #clear drawing    
     screen.fill("black")
 
-    for i in range(0,36):
+    for i in range(0,18):
         for j in range(0,36):
-            pygame.draw.rect(screen,color[tilemap[i][j].get_type()],pygame.Rect(tilemap[i][j].get_pos_x(), tilemap[i][j].get_pos_y(), tilemap[i][j].get_height(), tilemap[i][j].get_width()))
+            pygame.draw.rect(screen,color[tilemap[i][j].get_type()],pygame.Rect(tilemap[i][j].get_pos_y(),tilemap[i][j].get_pos_x() , tilemap[i][j].get_height(), tilemap[i][j].get_width()))
 
     pygame.draw.rect(screen,(255, 255, 255, 255),player_1_react)
 

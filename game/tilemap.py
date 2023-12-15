@@ -26,7 +26,7 @@ class Tilemap:
         return self.width
     
     def get_PS(self):
-        return (self.pos_x, self.pos_y,self.height,self.width)
+        return (self.pos_y, self.pos_x, self.height, self.width)
     
     def get_type(self):
         return self.type
