@@ -15,3 +15,8 @@ git push -u origin main
 git remote add origin https://github.com/JP101TEST/gameChristmas2023.git
 git branch -M main
 git push -u origin main
+
+Step to push
+	- git add
+	- git commit
+	- git push
