@@ -2,6 +2,8 @@
 #myvenv\Scripts\activate ใช้เพื่อต้องการใช้งานสภาพแวดล้อมนั้น
 #pip install pyinstaller ใช้สร้าง .exe file
 
+#Upload from mac
+
 import pygame
 import sys
 import random
